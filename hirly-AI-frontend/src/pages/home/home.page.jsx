@@ -2,12 +2,12 @@ import {Button} from "@/components/ui/button"
 import '../../App.css'
 
 
-
 function HomePage() {
 
     return (
         <>
-            <Button variant="destructive">Click Me</Button>
+            <h1>Home</h1>
+            <Button variant="destructive">Click me</Button>
         </>
     )
 }

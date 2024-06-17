@@ -4,11 +4,21 @@ import {TiSocialLinkedinCircular} from "react-icons/ti";
 import {RiFacebookCircleLine} from "react-icons/ri";
 import {Link} from "react-router-dom";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
+import {useEffect} from "react";
 
 
 export const HomePage = () => {
+
+    useEffect(() => {
+        document.body.classList.add('overflow-hidden');
+
+        return () => {
+            document.body.classList.remove('overflow-hidden');
+        };
+    }, []);
+
     return (
-        <>
+        <main className="overflow-hidden">
             <div
                 className="w-full h-screen bg-gradient-to-bl from-sky-900 via-slate-900
                 to-sky-900 absolute -z-50 opacity-35"></div>
@@ -41,7 +51,7 @@ export const HomePage = () => {
             </div>
 
 
-        </>
+        </main>
     )
 }
 

@@ -1,5 +1,6 @@
 import {FaBusinessTime} from "react-icons/fa";
 import {FaLocationDot} from "react-icons/fa6";
+import {Link} from "react-router-dom";
 
 interface JobCardProps{
     title:string,
@@ -10,7 +11,9 @@ interface JobCardProps{
 export const JobCard = (props:JobCardProps) =>{
     return (
         <>
-            <div className="w-1/6 h-72 rounded-2xl relative">
+
+            <div className="w-1/6 h-72 rounded-2xl relative cursor-pointer">
+                <Link to={"/jobForm"} className="w-full h-full ">
                 <div className="w-full h-full bg-blue z-0 opacity-50 absolute"></div>
                 <div className="w-full h-1/2 relative flex justify-center items-center">
                     <div className="w-full h-full bg-cyan-950 z-0 opacity-50 absolute"></div>
@@ -28,6 +31,7 @@ export const JobCard = (props:JobCardProps) =>{
                         <h2 className="text-xl">{props.location}</h2>
                     </div>
                 </div>
+                </Link>
             </div>
         </>
     )

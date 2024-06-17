@@ -1,5 +1,4 @@
 import bgImg from "@/assets/abstract_flowing_blue_waves_design_0402.jpg";
-import {NavBar} from "@/components/shared/NavBar/NavBar.tsx";
 import {Outlet} from "react-router-dom";
 
 export const RootLayout = () => {
@@ -12,7 +11,6 @@ export const RootLayout = () => {
                     alt="Background"
                 />
                 <div className="relative z-10">
-                    <NavBar/>
                     <Outlet/>
                 </div>
             </div>

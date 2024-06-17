@@ -5,9 +5,9 @@ function App() {
 
 
     return (
-        <>
+        <main>
             <Button>Click Me</Button>
-        </>
+        </main>
     )
 }
 

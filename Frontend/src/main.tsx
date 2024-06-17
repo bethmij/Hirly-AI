@@ -6,6 +6,7 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import {HomePage} from "@/pages/Home/HomePage.tsx";
 import JobPage from "@/pages/Job/JobPage.tsx";
 import {RootLayout} from "@/layout/RootLayout/RootLayout.tsx";
+import {JobFormPage} from "@/pages/JobForm/JobFormPage.tsx";
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
             {
                 path:"/job",
                 element:<JobPage/>
+            },
+            {
+                path:"/jobForm",
+                element:<JobFormPage/>
             }
         ]
     },

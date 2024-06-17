@@ -1,16 +1,24 @@
 import logo from "@/assets/logo.png";
 import {Link} from "react-router-dom";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
+import React from "react";
 
-export const NavBar = () => {
+interface Props {
+    title:string
+    icon:React.ReactNode
+}
+export const NavBar = ({title,icon}:Props) => {
     return(
         <>
             <div className="w-full h-20 flex justify-between items-center">
                 <div className="w-full h-20 absolute bg-blue opacity-25 -z-50"></div>
                 <img className=" h-36 ms-10" src={logo} alt={"Img"}/>
-                <h1 className="text-4xl opacity-80 text-center">Available Jobs</h1>
+                <div className="flex gap-x-5 items-center">
+                    {icon}
+                    <h1 className="text-3xl opacity-80 text-center">{title}</h1>
+                </div>
                 <div className="flex me-10 gap-x-10 items-center">
-                    <Link to="/">
+                <Link to="/">
                         <h2 className="text-2xl hover:text-cyan-700">Home</h2>
                     </Link>
                     <Link to="/job">

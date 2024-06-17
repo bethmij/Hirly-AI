@@ -1,7 +1,7 @@
 import {FaBusinessTime} from "react-icons/fa";
 import {FaLocationDot} from "react-icons/fa6";
 
-export default function JobCard(){
+export const JobCard = () =>{
     return (
         <>
             <div className="w-1/6 h-72 rounded-2xl relative">

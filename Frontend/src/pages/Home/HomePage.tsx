@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 
 
-export default function HomePage() {
+export const HomePage = () => {
     return (
         <>
             <div
@@ -19,12 +19,12 @@ export default function HomePage() {
                 <img className=" w-2/6 ms-[5vw]   " src={logo} alt={"Img"}/>
                 <div className="flex -right-16 gap-x-5">
                     <Link to="/">
-                        <h2 className="text-3xl hover:text-cyan-500">Home</h2>
+                        <h2 className="text-3xl mt-2 hover:text-cyan-500">Home</h2>
                     </Link>
                     <Link to="/job">
-                    <h2 className="text-3xl  hover:text-cyan-500">Jobs</h2>
+                    <h2 className="text-3xl mt-2  hover:text-cyan-500">Jobs</h2>
                     </Link>
-                    <Avatar className="w-12 h-12">
+                    <Avatar className="w-14 h-14">
                         <AvatarImage src="https://github.com/shadcn.pn"/>
                         <AvatarFallback>B</AvatarFallback>
                     </Avatar>

@@ -3,19 +3,26 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
-import HomePage from "@/pages/Home/HomePage.tsx";
+import {HomePage} from "@/pages/Home/HomePage.tsx";
 import JobPage from "@/pages/Job/JobPage.tsx";
+import {RootLayout} from "@/layout/RootLayout/RootLayout.tsx";
 
 
 const router = createBrowserRouter([
     {
+        element:<RootLayout/>,
+        children:[
+            {
+                path:"/job",
+                element:<JobPage/>
+            }
+        ]
+    },
+    {
         path:"/",
         element:<HomePage/>
     },
-    {
-        path:"/job",
-        element:<JobPage/>
-    }
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

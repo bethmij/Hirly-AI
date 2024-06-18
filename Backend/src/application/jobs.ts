@@ -1,19 +1,18 @@
 import  {Request, Response} from "express";
 import {jobs} from "../infrastructure/jobs";
+import Job from "../infrastructure/schemas/jobs";
 
 
-export const getJobs = (req:Request,res:Response) => {
+export const getJobs = async (req:Request,res:Response) => {
+    const jobs = await Job.find()
     res.json(jobs)
 }
 
-export const postJobs = (req:Request, res:Response) => {
+export const postJobs = async (req:Request, res:Response) => {
     const reqBody = req.body;
 
-    if(!(typeof reqBody._id === "string" && typeof reqBody.title === "string" && typeof reqBody.type === "string" && typeof reqBody.location === "string" )){
-        return res.status(400).send()
-    }
-    jobs.push(reqBody)
-     res.send("Job Saved")
+    await Job.create(reqBody)
+    res.status(201).send()
 }
 
 export const getJob = (req:Request, res:Response) => {

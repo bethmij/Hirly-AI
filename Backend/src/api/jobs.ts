@@ -1,10 +1,10 @@
 import express from "express";
-import {deleteJob, getJob, getJobs, postJobs, updateJob} from "../application/jobs";
+import {deleteJob, getAllJobs, getJobById, postJobs, updateJob} from "../application/jobs";
 
 const jobRouter = express.Router()
 
-jobRouter.route("/").get(getJobs).post(postJobs)
+jobRouter.route("/").get(getAllJobs).post(postJobs)
 
-jobRouter.route("/:_id").get(getJob).delete(deleteJob).put(updateJob)
+jobRouter.route("/:_id").get(getJobById).delete(deleteJob).put(updateJob)
 
 export default jobRouter

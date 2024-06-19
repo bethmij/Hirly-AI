@@ -1,9 +1,8 @@
 import {NextFunction, Request, Response} from "express";
 import Job from "../infrastructure/schemas/jobs";
+import sendError from "../infrastructure/error";
 
-
-
-export const getJobs = async (req:Request,res:Response,next:NextFunction) => {
+export const getAllJobs = async (req:Request,res:Response,next:NextFunction) => {
     try {
         const jobs = await Job.find()
         res.json(jobs)
@@ -24,7 +23,7 @@ export const postJobs = async (req:Request, res:Response,next:NextFunction) => {
 
 }
 
-export const getJob = async (req:Request, res:Response,next:NextFunction) => {
+export const getJobById = async (req:Request, res:Response,next:NextFunction) => {
 
     try{
         const job = await Job.findById(req.params._id)
@@ -52,13 +51,4 @@ export const updateJob = async (req:Request, res:Response, next:NextFunction) =>
     }catch (error){
         sendError(res,next,error)
     }
-}
-
-function sendError(res:Response, next:NextFunction, error: unknown ): void {
-    if( typeof error === 'object' && error !== null && 'message' in error){
-        res.status(500).send((error as Error).message)
-    }else {
-        res.status(500).send("An unknown error occurred");
-    }
-    next(error)
 }

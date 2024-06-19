@@ -1,99 +1,152 @@
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import axios from "axios";
+import z from "zod";
+import {FieldValues, useForm} from "react-hook-form";
+import {zodResolver} from '@hookform/resolvers/zod';
 import {NavBar} from "@/components/shared/NavBar/NavBar.tsx";
 import {InputItem} from "@/components/shared/TextArea/InputItem.tsx";
 import {FaBusinessTime} from "react-icons/fa";
 import {FaLocationDot} from "react-icons/fa6";
 import {Separator} from "@/components/ui/separator.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import {MdFormatAlignRight} from "react-icons/md";
-import z from "zod";
-import { FieldValues, useForm} from "react-hook-form";
-import { zodResolver } from '@hookform/resolvers/zod';
+import {MdFormatAlignRight, MdOutlineErrorOutline} from "react-icons/md";
+import {AiOutlineLoading3Quarters} from "react-icons/ai";
+import {CgUnavailable} from "react-icons/cg";
 
-const questionErrorMsg: string = "answer should consist more than 10 letters";
+interface Job {
+    _id: string
+    title: string
+    type: string
+    description: string
+    location: string
+    questions: string[]
+}
+
+interface JobApplication {
+    userId: string
+    fullName: string
+    answers: string[]
+    job:string
+}
+
+const getJobApplication = async (jobId: string) => {
+    try {
+        const job = await axios.get(`http://localhost:4000/jobs/${jobId}`)
+        return job.data
+    } catch (error) {
+        if (typeof error === 'object' && error !== null && 'message' in error) {
+            console.log((error as Error).message);
+        }
+    }
+}
+
+const questionErrorMsg: string = "Answer should consist of more than 10 letters";
 
 const schema = z.object({
-    name: z.string(),
-    question1: z.string().min(10, { message: questionErrorMsg }),
-    question2: z.string().min(10, { message: questionErrorMsg }),
-    question3: z.string().min(10, { message: questionErrorMsg }),
+    name: z.string().nonempty({message: "Name is required"}),
+    question0: z.string().min(10, {message: questionErrorMsg}),
+    question1: z.string().min(10, {message: questionErrorMsg}),
+    question2: z.string().min(10, {message: questionErrorMsg}),
 });
 
-export const JobFormPage = () => {
+export const JobFormPage: React.FC = () => {
+    const [job, setJob] = useState<Job | null>(null)
+    const [isLoading, setIsLoading] = useState(false)
+    const [isError, setIsError] = useState(false)
 
-    const { register, handleSubmit,formState:{errors} , reset} = useForm({ resolver: zodResolver(schema) });
+    const {register, handleSubmit, formState: {errors}, reset} = useForm({resolver: zodResolver(schema)});
+    const {jobId} = useParams<{ jobId: string }>()
 
-    const onSubmit = (data: FieldValues): void => {
+    useEffect(() => {
+        setIsLoading(true)
+        if (jobId) {
+            getJobApplication(jobId)
+                .then((data) => setJob(data))
+                .catch(() => setIsError(true))
+                .finally(() => setIsLoading(false))
+        }
+    }, [jobId])
+
+    const onSubmit = async (data: FieldValues) => {
         console.log(data);
-        reset()
-    }
-
-    const job = {
-        title: "Intern - Software Engineer",
-        description:
-            "We are seeking a motivated and enthusiastic Software Engineering Intern to join our dynamic team. " +
-            "As a Software Engineering Intern, you will have the opportunity to work closely " +
-            "with experienced developers and contribute to real-world projects. This internship is designed to " +
-            "provide valuable hands-on experience, foster professional growth, and enhance your technical skills.",
-        type: "Full-time",
-        location: "Remote",
-        questions: [
-            {
-                id: "question1",
-                title: "Share your academic background and highlight key programming concepts you've mastered. " +
-                    "How has your education shaped your current tech skill set ?"
-            },
-            {
-                id: "question2",
-                title: "Describe your professional development, emphasizing any certifications obtained. " +
-                    "How have these certifications enriched your technical abilities, " +
-                    "and can you provide an example of their practical application ?",
-            },
-            {
-                id: "question3",
-                title: "Discuss notable projects in your programming experience. What challenges did you face, " +
-                    "and how did you apply your skills to overcome them? Highlight the technologies used " +
-                    "and the impact of these projects on your overall growth as a professional ?"
+        if(jobId) {
+            const jobApplication: JobApplication = {
+                userId: "123",
+                fullName: data.name,
+                answers: [data.question0, data.question1, data.question2],
+                job: jobId
             }
-        ],
-    };
+            try {
+                const response = await axios.post("http://localhost:4000/jobApplication",JSON.stringify(jobApplication),{
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if(response.status === 201){
+                    alert("application saved")
+                }else{
+                    alert("application saving failed")
+                }
+            }catch (error){
+                console.log(error)
+            }
+
+            console.log(jobApplication)
+        }
+        reset();
+    }
 
     return (
         <>
-            <NavBar title={"Job Form"} icon={<MdFormatAlignRight className="opacity-70" size={30} />} />
+            <NavBar title={"Job Form"} icon={<MdFormatAlignRight className="opacity-70" size={30}/>}/>
             <div className="px-20">
-
-                <h1 className="text-4xl mt-14">{job.title}</h1>
-                <div className="flex items-center gap-x-14 mt-5">
-                    <div className="flex gap-x-5">
-                        <FaBusinessTime size="30" />
-                        <h2 className="text-xl">{job.type}</h2>
+                {isLoading ? (
+                    <div className="flex justify-center items-center  w-full ">
+                        <AiOutlineLoading3Quarters size={40} className="animate-spin"/>
                     </div>
-                    <div className="flex gap-x-4">
-                        <FaLocationDot size="25" />
-                        <h2 className="text-xl">{job.location}</h2>
+                ) : isError ? (
+                    <div className="flex justify-center items-center  w-full ">
+                        <MdOutlineErrorOutline size={40}/>
+                        <h2>Error while fetching data</h2>
                     </div>
-                </div>
-
-                <h2 className="text-lg pe-40 mt-8 mb-10">{job.description}</h2>
-                <Separator />
-
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="mt-16">
-                        <InputItem id="name" inputType="input" title="Full Name"
-                                   required={true} register={register} error={errors.name}/>
+                ) : !job ? (
+                    <div className="flex justify-center items-center  w-full ">
+                        <CgUnavailable size={40} className=" opacity-60"/>
+                        <h2 className="text-2xl opacity-60">Jobs unavailable</h2>
                     </div>
-
-                    {job.questions.map((question) => (
-                        <div className="mt-16" key={question.id}>
-                            <InputItem id={question.id} inputType="textArea" title={question.title}
-                                       required={true} register={register} error={errors[question.id]}/>
+                ) : (
+                    <>
+                        <h1 className="text-4xl mt-14">{job.title}</h1>
+                        <div className="flex items-center gap-x-14 mt-5">
+                            <div className="flex gap-x-5">
+                                <FaBusinessTime size="30"/>
+                                <h2 className="text-xl">{job.type}</h2>
+                            </div>
+                            <div className="flex gap-x-4">
+                                <FaLocationDot size="25"/>
+                                <h2 className="text-xl">{job.location}</h2>
+                            </div>
                         </div>
-                    ))}
-
-                    <div className="flex gap-x-5 mt-10 ">
-                        <Button type="submit" className="text-xl mb-16">Submit</Button>
-                    </div>
-                </form>
+                        <h2 className="text-lg pe-40 mt-8 mb-10">{job.description}</h2>
+                        <Separator/>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="mt-16">
+                                <InputItem id="name" inputType="input" title="Full Name"
+                                           required={true} register={register} error={errors.name}/>
+                            </div>
+                            {job.questions.map((question, index) => (
+                                <div className="mt-16" key={`question${index}`}>
+                                    <InputItem id={`question${index}`} inputType="textArea" title={question}
+                                               required={true} register={register} error={errors[`question${index}`]}/>
+                                </div>
+                            ))}
+                            <div className="flex gap-x-5 mt-10 ">
+                                <Button type="submit" className="text-xl mb-16">Submit</Button>
+                            </div>
+                        </form>
+                    </>
+                )}
             </div>
         </>
     );

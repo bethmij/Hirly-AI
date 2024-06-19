@@ -1,3 +1,4 @@
+import "dotenv/config"
 import express from "express";
 import jobRouter from "./api/jobs";
 import {connectionDB} from "./infrastructure/db";

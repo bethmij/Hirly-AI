@@ -6,7 +6,7 @@ export const RootLayout = () => {
         <>
             <div className="relative h-screen">
                 <img
-                    className="fixed top-0 left-0 w-full h-screen -z-10 opacity-10"
+                    className="fixed top-0 left-0 w-full h-screen -z-10 opacity-5"
                     src={bgImg}
                     alt="Background"
                 />

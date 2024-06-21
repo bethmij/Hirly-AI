@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.png";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import React from "react";
 
@@ -8,6 +8,17 @@ interface Props {
     icon:React.ReactNode
 }
 export const NavBar = ({title,icon}:Props) => {
+
+    const location = useLocation();
+
+    const setMenuItem = (path: string, title: string) => {
+        return <Link to={path}>
+            {location.pathname === path ?
+                <h2 className="text-2xl text-cyan-700 underline underline-offset-8">{title}</h2>
+                : <h2 className="text-2xl hover:text-cyan-700">{title}</h2>}
+        </Link>
+    }
+
     return(
         <>
             <div className="w-full h-20 flex justify-between items-center">
@@ -18,12 +29,8 @@ export const NavBar = ({title,icon}:Props) => {
                     <h1 className="text-3xl opacity-80 text-center">{title}</h1>
                 </div>
                 <div className="flex me-10 gap-x-10 items-center">
-                <Link to="/">
-                        <h2 className="text-2xl hover:text-cyan-700">Home</h2>
-                    </Link>
-                    <Link to="/job">
-                        <h2 className="text-2xl  hover:text-cyan-700">Jobs</h2>
-                    </Link>
+                    {setMenuItem("/","Home")}
+                    {setMenuItem("/job","Jobs")}
                     <Avatar className="w-12 h-12">
                         <AvatarImage src="https://github.com/shadcn.pn"/>
                         <AvatarFallback>B</AvatarFallback>

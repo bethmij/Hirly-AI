@@ -7,6 +7,9 @@ import {HomePage} from "@/pages/Home/HomePage.tsx";
 import JobPage from "@/pages/Job/JobPage.tsx";
 import {RootLayout} from "@/layout/RootLayout/RootLayout.tsx";
 import {JobFormPage} from "@/pages/JobForm/JobFormPage.tsx";
+import {AdminDashboardPage} from "@/pages/AdminDashboard/AdminDashboardPage.tsx";
+import {JobsPage} from "@/pages/PostedJobs/JobsPage.tsx";
+import {PostJobPage} from "@/pages/PostJobs/PostJobPage.tsx";
 
 
 const router = createBrowserRouter([
@@ -18,9 +21,22 @@ const router = createBrowserRouter([
                 element:<JobPage/>
             },
             {
-                path:"/jobForm/:jobId",
-                element:<JobFormPage/>
+                path: "/jobForm/:jobId",
+                element: <JobFormPage/>
+            },
+            {
+                path:"/admin/dashboard",
+                element:<AdminDashboardPage/>
+            },
+            {
+                path: "/admin/job",
+                element: <JobsPage/>
+            },
+            {
+                path:"/admin/postJob",
+                element:<PostJobPage/>
             }
+
         ]
     },
     {

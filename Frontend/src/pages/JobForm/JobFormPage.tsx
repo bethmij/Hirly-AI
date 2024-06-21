@@ -5,7 +5,7 @@ import z from "zod";
 import {FieldValues, useForm} from "react-hook-form";
 import {zodResolver} from '@hookform/resolvers/zod';
 import {NavBar} from "@/components/shared/NavBar/NavBar.tsx";
-import {InputItem} from "@/components/shared/TextArea/InputItem.tsx";
+import {InputItem} from "@/components/shared/InputItems/InputItem.tsx";
 import {FaBusinessTime} from "react-icons/fa";
 import {FaLocationDot} from "react-icons/fa6";
 import {Separator} from "@/components/ui/separator.tsx";
@@ -13,22 +13,8 @@ import {Button} from "@/components/ui/button.tsx";
 import {MdFormatAlignRight, MdOutlineErrorOutline} from "react-icons/md";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {CgUnavailable} from "react-icons/cg";
+import {Job, JobApplication} from "@/assets/Data/interfaces.ts";
 
-interface Job {
-    _id: string
-    title: string
-    type: string
-    description: string
-    location: string
-    questions: string[]
-}
-
-interface JobApplication {
-    userId: string
-    fullName: string
-    answers: string[]
-    job:string
-}
 
 const getJobApplication = async (jobId: string) => {
     try {
@@ -44,7 +30,7 @@ const getJobApplication = async (jobId: string) => {
 const questionErrorMsg: string = "Answer should consist of more than 10 letters";
 
 const schema = z.object({
-    name: z.string().nonempty({message: "Name is required"}),
+    name: z.string(),
     question0: z.string().min(10, {message: questionErrorMsg}),
     question1: z.string().min(10, {message: questionErrorMsg}),
     question2: z.string().min(10, {message: questionErrorMsg}),

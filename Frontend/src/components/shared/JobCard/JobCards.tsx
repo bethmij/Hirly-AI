@@ -29,7 +29,7 @@ const getJobs = async (): Promise<Job[]> => {
     }
 }
 
-export const JobCards = () =>{
+export const JobCards = () => {
     const [jobs, setJobs] = useState<Job[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
@@ -64,10 +64,10 @@ export const JobCards = () =>{
                         <div className="w-1/6 h-72  relative cursor-pointer">
                             <Link to={`/jobForm/${job._id}`} className="w-full h-full ">
                                 <div className="w-full h-full rounded-lg bg-blue z-0 opacity-50 absolute"></div>
-                                <div className="w-full h-1/2 relative flex justify-center items-center">
+                                <div className="w-full h-1/2 px-3 relative flex justify-center items-center">
                                     <div
                                         className="w-full h-full rounded-t-lg bg-cyan-950 z-0 opacity-50 absolute"></div>
-                                    <h1 className="text-3xl text-center z-10 text-white">
+                                    <h1 className="text-3xl z-50  w-full h-full text-center text-white overflow-hidden text-ellipsis flex items-center justify-center">
                                         {job.title}
                                     </h1>
                                 </div>

@@ -43,7 +43,7 @@ export const InputItem = (props: InputProps) => {
                 <div className="flex flex-col gap-y-3">
                     <Label className="text-xl">{props.title}</Label>
                     <Input
-                        className="mb-4"
+                        className="mb-4 text-lg"
                         {...props.register(props.id)}
                         id={props.id}
                         name={props.id}
@@ -54,7 +54,7 @@ export const InputItem = (props: InputProps) => {
             ) : props.inputType === 'textArea' ? (
                 <div className="flex flex-col gap-y-3">
                     <Label className="text-xl mb-2">{props.title}</Label>
-                    <Textarea
+                    <Textarea className="text-lg"
                         {...props.register(props.id)}
                         id={props.id}
                         name={props.id}

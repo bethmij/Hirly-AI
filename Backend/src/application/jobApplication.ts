@@ -1,6 +1,7 @@
 import {NextFunction, Request, Response} from "express";
 import sendError from "../infrastructure/error";
 import JobApplication from "../infrastructure/schemas/jobApplication";
+import {generateRatings} from "../api/rating";
 
 export const getApplications = async (req:Request, res:Response, next:NextFunction) => {
     try {
@@ -20,7 +21,8 @@ export const getApplications = async (req:Request, res:Response, next:NextFuncti
 
 export const saveApplications = async (req:Request, res:Response, next:NextFunction) => {
     try {
-        await JobApplication.create(req.body)
+        const createdJobApplication = await JobApplication.create(req.body)
+        await generateRatings(createdJobApplication._id)
         res.status(201).send()
     }catch (error){
         sendError(res,next,error)

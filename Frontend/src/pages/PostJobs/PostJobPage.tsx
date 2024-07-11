@@ -53,7 +53,7 @@ export const PostJobPage = () => {
             <AdminNavBar/>
             <h1 className="w-full text-center mt-10 text-4xl opacity-80">Create A Job Posting</h1>
 
-            <form className="flex flex-col gap-y-10 px-20 mt-10" onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col gap-y-10 px-40 mt-10" onSubmit={handleSubmit(onSubmit)}>
 
                 <InputItem id={"title"} inputType={"input"} title={"Title"} register={register} required={true}
                            error={errors.title}/>

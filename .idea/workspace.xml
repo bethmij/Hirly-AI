@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4fa6e86-bdbd-45b4-8f89-b5749fe0656a" name="Changes" comment="post jobs - axios modified">
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/Applicants /ApplicantsPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/PostJobs/PostJobPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/PostJobs/PostJobPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/PostedJobs/JobsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/PostedJobs/JobsPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +59,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/media/bethmij/e6e5b486-6d96-406a-9def-132561b62dfc/IJSE/Working Projects/Hirly-AI/Backend/node_modules/typescript/lib",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/media/bethmij/e6e5b486-6d96-406a-9def-132561b62dfc/IJSE/Working Projects/Hirly-AI/Frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -84,6 +97,8 @@
       <workItem from="1718799967176" duration="3562000" />
       <workItem from="1718935352487" duration="9442000" />
       <workItem from="1719052864275" duration="1902000" />
+      <workItem from="1719638364772" duration="138000" />
+      <workItem from="1720679277199" duration="1876000" />
     </task>
     <task id="LOCAL-00001" summary="admin dashboard added">
       <option name="closed" value="true" />

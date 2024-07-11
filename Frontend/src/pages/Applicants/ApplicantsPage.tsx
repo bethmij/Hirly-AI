@@ -5,6 +5,9 @@ import axios from "axios";
 import {JobApplication} from "@/assets/Data/interfaces.ts";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {MdOutlineErrorOutline} from "react-icons/md";
+import {Separator} from "@/components/ui/separator.tsx";
+import {Textarea} from "@/components/ui/textarea.tsx";
+import {Label} from "@/components/ui/label.tsx";
 
 const getApplicant = async (userId: string) => {
     try {
@@ -16,8 +19,6 @@ const getApplicant = async (userId: string) => {
         }
         return null;
     }
-
-
 }
 
 export const ApplicantsPage = () => {
@@ -26,14 +27,17 @@ export const ApplicantsPage = () => {
     const [applicant, setApplicant] = useState<JobApplication[] | null>(null)
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
+    const [divColor, setDivColor] = useState("")
+
 
     useEffect(() => {
         if (userId) {
             getApplicant(userId)
                 .then(data => {
-                    if(data){
+                    if (data) {
                         setApplicant(data)
-                        console.log(data)
+                        setDivColor(data[0].rating === "bad" ? "bg-red" : data[0].rating === "Moderate" ?
+                            "bg-yellow-500" : data[0].rating === "good" ? "bg-green-600" : "bg-cyan-200")
                     }
                 })
                 .catch(() => setIsError(true))
@@ -55,12 +59,29 @@ export const ApplicantsPage = () => {
                         <h2>Error while fetching data</h2>
                     </div>
                 ) : applicant ? (
-                    <div className=" flex mt-10 h-20 bg-cyan-900 rounded-md items-center">
-                        <h1 className={"ms-10 text-2xl text-white"}>{applicant[0].fullName}</h1>
-                        <div className={"w-20 h-10 ms-10 rounded-md  align-middle bg-red"}>
+                    <>
+                        <div className=" flex mt-10 h-20 bg-cyan-900 rounded-md items-center">
+                            <h1 className={"ms-10 text-2xl text-white"}>{applicant[0].fullName}</h1>
+                            <div
+                                className={`w-20 h-10 ms-10 rounded-md flex items-center justify-center align-middle ${divColor}`}>
+                                <h1 className={"text-center font-bold text-white"}>{applicant[0].rating}</h1>
+                            </div>
+                        </div>
+                        <Separator className=" my-10 "/>
+                        <div className="flex flex-col">
+                            <h1 className={"text-2xl text-white"}>Questions</h1>
+                            {applicant[0].job.questions.map((question: string, index:number) => (
+                                <>
+                                    <Label className="text-xl mb-2 mt-14">{question}</Label>
+                                    <Textarea className="text-lg"
+                                        value={applicant[0].answers[index]} disabled={true}
+                                    />
+                                </>
+                            ))}
+
 
                         </div>
-                    </div>
+                    </>
                 ) : null
                 }
             </div>

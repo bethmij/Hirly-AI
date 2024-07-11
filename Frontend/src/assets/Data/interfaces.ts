@@ -12,4 +12,5 @@ export interface JobApplication {
     fullName: string
     answers: string[]
     job:string
+    rating?: string
 }

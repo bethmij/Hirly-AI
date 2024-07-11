@@ -6,9 +6,10 @@ import {generateRatings} from "../api/rating";
 export const getApplications = async (req:Request, res:Response, next:NextFunction) => {
     try {
         const {id} = req.query
+        console.log(id)
 
         if(id){
-            const application = await JobApplication.find({job: id})
+            const application = await JobApplication.find({job: id}).populate("job"  ).exec()
             return res.json(application)
         }
         const applications = await JobApplication.find().populate("job").exec()
@@ -18,6 +19,7 @@ export const getApplications = async (req:Request, res:Response, next:NextFuncti
         sendError(res,next,error)
     }
 }
+
 
 export const saveApplications = async (req:Request, res:Response, next:NextFunction) => {
     try {

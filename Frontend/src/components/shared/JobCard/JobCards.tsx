@@ -1,6 +1,6 @@
 import {FaBusinessTime} from "react-icons/fa";
 import {FaLocationDot} from "react-icons/fa6";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {MdOutlineErrorOutline} from "react-icons/md";
 import {CgUnavailable} from "react-icons/cg";
@@ -29,10 +29,36 @@ const getJobs = async (): Promise<Job[]> => {
     }
 }
 
+const cardInfo = (title: string, type: string, location: string) => {
+    return (
+        <>
+            <div className="w-full h-full rounded-lg bg-blue z-0 opacity-50 absolute"></div>
+            <div className="w-full h-1/2 px-3 relative flex justify-center items-center">
+                <div
+                    className="w-full h-full rounded-t-lg bg-cyan-950 z-0 opacity-50 absolute"></div>
+                <h1 className="text-3xl z-50  w-full h-full text-center text-white overflow-hidden text-ellipsis flex items-center justify-center">
+                    {title}
+                </h1>
+            </div>
+            <div className="flex flex-col justify-center items-center z-10 w-full h-1/2">
+                <div className="flex gap-x-5">
+                    <FaBusinessTime size="30"/>
+                    <h2 className="text-xl">{type}</h2>
+                </div>
+                <div className="flex gap-x-5 mt-5">
+                    <FaLocationDot size="25"/>
+                    <h2 className="text-xl">{location}</h2>
+                </div>
+            </div>
+        </>
+    )
+}
+
 export const JobCards = () => {
     const [jobs, setJobs] = useState<Job[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
+    const location = useLocation()
 
     useEffect(() => {
         setIsLoading(true)
@@ -62,26 +88,15 @@ export const JobCards = () => {
                 ) : (
                     jobs.map((job) => (
                         <div className="w-1/6 h-72  relative cursor-pointer">
-                            <Link to={`/jobForm/${job._id}`} className="w-full h-full ">
-                                <div className="w-full h-full rounded-lg bg-blue z-0 opacity-50 absolute"></div>
-                                <div className="w-full h-1/2 px-3 relative flex justify-center items-center">
-                                    <div
-                                        className="w-full h-full rounded-t-lg bg-cyan-950 z-0 opacity-50 absolute"></div>
-                                    <h1 className="text-3xl z-50  w-full h-full text-center text-white overflow-hidden text-ellipsis flex items-center justify-center">
-                                        {job.title}
-                                    </h1>
-                                </div>
-                                <div className="flex flex-col justify-center items-center z-10 w-full h-1/2">
-                                    <div className="flex gap-x-5">
-                                        <FaBusinessTime size="30"/>
-                                        <h2 className="text-xl">{job.type}</h2>
-                                    </div>
-                                    <div className="flex gap-x-5 mt-5">
-                                        <FaLocationDot size="25"/>
-                                        <h2 className="text-xl">{job.location}</h2>
-                                    </div>
-                                </div>
-                            </Link>
+                            {location.pathname === "/job" ?
+                                <Link to={`/jobForm/${job._id}`} className="w-full h-full ">
+                                    {cardInfo(job.title, job.type, job.location)}
+                                </Link> :
+                             location.pathname === "/admin/job" ?
+                                 <Link to={`/admin/postJob/${job._id}`} className="w-full h-full ">
+                                     {cardInfo(job.title, job.type, job.location)}
+                                 </Link> : null
+                            }
                         </div>
                     ))
                 )}

@@ -11,5 +11,5 @@ export interface JobApplication {
     userId: string
     fullName: string
     answers: string[]
-    job:string
+    job:Job
 }

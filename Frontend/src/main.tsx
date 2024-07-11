@@ -10,7 +10,8 @@ import {JobFormPage} from "@/pages/JobForm/JobFormPage.tsx";
 import {AdminDashboardPage} from "@/pages/AdminDashboard/AdminDashboardPage.tsx";
 import {JobsPage} from "@/pages/PostedJobs/JobsPage.tsx";
 import {PostJobPage} from "@/pages/PostJobs/PostJobPage.tsx";
-import {ApplicantsPage} from "@/pages/Applicants /ApplicantsPage.tsx";
+import {PostedJobsById} from "@/pages/PostedJobsById/PostedJobsById.tsx";
+import {ApplicantsPage} from "@/pages/Applicants/ApplicantsPage.tsx";
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             },
             {
                 path:"admin/postJob/:jobId",
+                element:<PostedJobsById/>
+            },
+            {
+                path:"admin/applicants/:userId",
                 element:<ApplicantsPage/>
             }
         ]

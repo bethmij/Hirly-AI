@@ -8,8 +8,8 @@ export interface Job {
 }
 
 export interface JobApplication {
-    userId: string
+    _id?: string
     fullName: string
     answers: string[]
-    job:Job
+    job:string
 }

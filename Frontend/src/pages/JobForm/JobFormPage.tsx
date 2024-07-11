@@ -58,7 +58,6 @@ export const JobFormPage: React.FC = () => {
         console.log(data);
         if(jobId) {
             const jobApplication: JobApplication = {
-                userId: "123",
                 fullName: data.name,
                 answers: [data.question0, data.question1, data.question2],
                 job: jobId
@@ -86,7 +85,7 @@ export const JobFormPage: React.FC = () => {
     return (
         <>
             <NavBar title={"Job Form"} icon={<MdFormatAlignRight className="opacity-70" size={30}/>}/>
-            <div className="px-20">
+            <div className="px-44">
                 {isLoading ? (
                     <div className="flex justify-center items-center  w-full ">
                         <AiOutlineLoading3Quarters size={40} className="animate-spin"/>

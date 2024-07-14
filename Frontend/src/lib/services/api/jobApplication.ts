@@ -3,7 +3,7 @@ import {JobApplication} from "@/assets/Data/interfaces.ts";
 
 export const getJobApplication = async (jobId: string) => {
     try {
-        const response = await axios.get(`http://localhost:4000/jobApplication?jobId=${jobId}`);
+        const response = await axios.get(`https://hirly-ai-production.up.railway.app/jobApplication?jobId=${jobId}`);
         return response.data;
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {
@@ -16,7 +16,7 @@ export const getJobApplication = async (jobId: string) => {
 export const postJobApplication = async (jobApplication:JobApplication) => {
     try {
         const token = await window.Clerk.session.getToken();
-        const response = await axios.post("http://localhost:4000/jobApplication",JSON.stringify(jobApplication),{
+        const response = await axios.post("https://hirly-ai-production.up.railway.app/jobApplication",JSON.stringify(jobApplication),{
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`

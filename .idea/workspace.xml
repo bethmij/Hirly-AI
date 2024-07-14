@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="netlify modified">
+    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="rebuild project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlify.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/public/netlify.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720965096508</updated>
-      <workItem from="1720965098894" duration="4352000" />
+      <workItem from="1720965098894" duration="5613000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
@@ -138,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720977143940</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rebuild project">
+      <option name="closed" value="true" />
+      <created>1720977845721</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720977845721</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +158,7 @@
     <MESSAGE value="add netlify.toml" />
     <MESSAGE value="jobApplication modified" />
     <MESSAGE value="netlify modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="netlify modified" />
+    <MESSAGE value="rebuild project" />
+    <option name="LAST_COMMIT_MESSAGE" value="rebuild project" />
   </component>
 </project>

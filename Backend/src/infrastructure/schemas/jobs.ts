@@ -1,4 +1,13 @@
-import mongoose, {Model} from "mongoose";
+import mongoose from "mongoose";
+
+export interface Job {
+    _id: string;
+    title: string;
+    type: string;
+    description: string;
+    location: string;
+    questions: string[];
+}
 
 const jobSchema = new mongoose.Schema({
         title: {
@@ -29,5 +38,4 @@ const jobSchema = new mongoose.Schema({
     }
 )
 
-const Job = mongoose.model("Job", jobSchema)
-export default Job
+export const Job = mongoose.model<Job>("Job", jobSchema)

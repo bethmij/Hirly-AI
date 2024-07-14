@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="reset domain api">
+    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="changing backend urls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Admin/Applicants/ApplicantsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Admin/Applicants/ApplicantsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Admin/PostedJobsById/PostedJobsById.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Admin/PostedJobsById/PostedJobsById.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/api/rating.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/api/rating.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobApplication.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobs.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,22 +18,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "bethmij"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bethmij&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/bethmij/Hirly-AI.git",
-    "accountId": "6734af2b-d60c-433c-9a0a-91171d6d646e"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bethmij/Hirly-AI.git&quot;,
+    &quot;accountId&quot;: &quot;6734af2b-d60c-433c-9a0a-91171d6d646e&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2jEvY77d0gkTr6h8gz5DKmDnyID" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -45,23 +42,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "js.last.introduce.type": "VAR",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.build.executor": "Run",
-    "ts.external.directory.path": "/media/bethmij/e6e5b486-6d96-406a-9def-132561b62dfc/IJSE/Working Projects/Hirly-AI/Frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;VAR&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/media/bethmij/e6e5b486-6d96-406a-9def-132561b62dfc/IJSE/Working Projects/Hirly-AI/Frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -109,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720965096508</updated>
-      <workItem from="1720965098894" duration="7792000" />
+      <workItem from="1720965098894" duration="10273000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
@@ -159,7 +156,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720979487690</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="handlers modified">
+      <option name="closed" value="true" />
+      <created>1720981771356</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720981771356</updated>
+    </task>
+    <task id="LOCAL-00008" summary="changing backend urls">
+      <option name="closed" value="true" />
+      <created>1720982309921</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720982309921</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +186,8 @@
     <MESSAGE value="netlify modified" />
     <MESSAGE value="rebuild project" />
     <MESSAGE value="reset domain api" />
-    <option name="LAST_COMMIT_MESSAGE" value="reset domain api" />
+    <MESSAGE value="handlers modified" />
+    <MESSAGE value="changing backend urls" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing backend urls" />
   </component>
 </project>

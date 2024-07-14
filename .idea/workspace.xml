@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="ratings updated">
-      <change beforePath="$PROJECT_DIR$/Backend/src/api/rating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/api/rating.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/application/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/application/jobApplication.ts" afterDir="false" />
+    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="schema updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720965096508</updated>
-      <workItem from="1720965098894" duration="10589000" />
+      <workItem from="1720965098894" duration="11442000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
@@ -186,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720985269651</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="schema updated">
+      <option name="closed" value="true" />
+      <created>1720985521244</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720985521244</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +210,7 @@
     <MESSAGE value="handlers modified" />
     <MESSAGE value="changing backend urls" />
     <MESSAGE value="ratings updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="ratings updated" />
+    <MESSAGE value="schema updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="schema updated" />
   </component>
 </project>

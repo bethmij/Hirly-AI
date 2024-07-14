@@ -55,38 +55,49 @@ export const AdminDashboardPage = () => {
             .catch(() => setIsError(true))
             .finally(() => setIsLoading(false))
 
+    }, [])
+
+    useEffect(() => {
         const chartData = new Map();
         jobForm.map(job => {
             const good = applicants.filter(app => app.job.title === job.title && app.rating === 'good').length;
-            const moderate = applicants.filter(app => app.job.title === job.title &&  app.rating ==='moderate').length;
-            const bad = applicants.filter(app => app.job.title === job.title &&  app.rating === 'bad').length;
+            const moderate = applicants.filter(app => app.job.title === job.title && app.rating === 'moderate').length;
+            const bad = applicants.filter(app => app.job.title === job.title && app.rating === 'bad').length;
             chartData.set(job.title, [good, moderate, bad]);
         })
         setChartData(chartData)
-    },[applicants, jobForm])
+    }, [applicants,jobForm]);
 
 
-    const pieChartData = (data:[]) => ({
+    const pieChartData = (data: []) => ({
 
-                labels: ['Good', 'Moderate', 'Bad'],
-                datasets: [
-                    {
-                        label: 'Job Applications',
-                        data: data,
-                        backgroundColor: ['#4caf50', '#ffeb3b', '#f44336'],
-                        hoverBackgroundColor: ['#45a049', '#ffc107', '#f44336'],
-                        borderWidth: 1
-                    },
-                ],
-
+            labels: ['Good', 'Moderate', 'Bad'],
+            datasets: [
+                {
+                    label: 'Job Applications',
+                    data: data,
+                    backgroundColor: ['#4caf50', '#ffeb3b', '#f44336'],
+                    hoverBackgroundColor: ['#45a049', '#ffc107', '#f44336'],
+                    borderWidth: 1
+                },
+            ],
         }
     )
 
 
     const options = {
+        responsive: true,
         plugins: {
             legend: {
                 display: false,
+            },
+            tooltip: {
+                bodyFont: {
+                    size: 20,
+                },
+                titleFont: {
+                    size: 15,
+                },
             },
         },
     };

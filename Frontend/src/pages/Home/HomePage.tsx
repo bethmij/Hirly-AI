@@ -3,8 +3,8 @@ import logo from "@/assets/logo.png"
 import {TiSocialLinkedinCircular} from "react-icons/ti";
 import {RiFacebookCircleLine} from "react-icons/ri";
 import {Link} from "react-router-dom";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import {useEffect} from "react";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
 
 
 export const HomePage = () => {
@@ -16,6 +16,15 @@ export const HomePage = () => {
             document.body.classList.remove('overflow-hidden');
         };
     }, []);
+
+    const customAppearance = {
+        elements: {
+            userButtonAvatarBox: {
+                width: '60px',
+                height: '60px'
+            }
+        }
+    };
 
     return (
         <main className="overflow-hidden">
@@ -32,12 +41,16 @@ export const HomePage = () => {
                         <h2 className="text-3xl mt-2 hover:text-cyan-500">Home</h2>
                     </Link>
                     <Link to="/job">
-                    <h2 className="text-3xl mt-2  hover:text-cyan-500">Jobs</h2>
+                        <h2 className="text-3xl mt-2  hover:text-cyan-500">Jobs</h2>
                     </Link>
-                    <Avatar className="w-14 h-14">
-                        <AvatarImage src="https://github.com/shadcn.pn"/>
-                        <AvatarFallback>B</AvatarFallback>
-                    </Avatar>
+                    <SignedOut>
+                        <div className="flex gap-x-5 bg-blue px-5 rounded-2xl">
+                            <SignInButton/>
+                        </div>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton appearance={customAppearance}/>
+                    </SignedIn>
                 </div>
 
             </div>

@@ -1,36 +1,55 @@
 import {NextFunction, Request, Response} from "express";
-import sendError from "../infrastructure/error";
 import JobApplication from "../infrastructure/schemas/jobApplication";
 import {generateRatings} from "../api/rating";
+import NotFoundError from "../domain/errors/not-found-error";
+import z from "zod";
+import ValidationError from "../domain/errors/validation-error";
 
-export const getApplications = async (req:Request, res:Response, next:NextFunction) => {
+export const getApplications = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const {jobId} = req.query
         const {userId} = req.query
 
-        if(jobId){
-            const application = await JobApplication.find({job: jobId}).populate("job"  ).exec()
+        if (jobId) {
+            const application = await JobApplication.find({job: jobId}).populate("job").exec()
+            if (!application) {
+                throw new NotFoundError("Job Application not found")
+            }
             return res.json(application)
-        }else if(userId){
-            const application = await JobApplication.find({_id:userId}).populate("job").exec()
+
+        } else if (userId) {
+            const application = await JobApplication.find({_id: userId}).populate("job").exec()
+            if (!application) {
+                throw new NotFoundError("Job Application not found")
+            }
             return res.json(application)
         }
         const applications = await JobApplication.find().populate("job").exec()
         return res.json(applications)
 
-    }catch (error){
-        sendError(res,next,error)
+    } catch (error) {
+        next(error)
     }
 }
 
 
-export const saveApplications = async (req:Request, res:Response, next:NextFunction) => {
+export const saveApplications = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const createdJobApplication = await JobApplication.create(req.body)
+        const jobApplication = z.object({
+            fullName: z.string(),
+            answers: z.string().array(),
+            job: z.string(),
+            rating: z.string().optional()
+        }).safeParse(req.body)
+
+        if (!jobApplication.success) {
+            throw new ValidationError(jobApplication.error.message);
+        }
+        const createdJobApplication = await JobApplication.create(jobApplication)
         await generateRatings(createdJobApplication._id)
         res.status(201).send()
-    }catch (error){
-        sendError(res,next,error)
+    } catch (error) {
+        next(error)
     }
 }
 

@@ -13,21 +13,28 @@ export const getAllJobs = async (req:Request,res:Response,next:NextFunction) => 
     }
 }
 
-export const postJobs = async (req:Request, res:Response,next:NextFunction) => {
-
+export const postJobs = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const job = z.object({ title: z.string(), description: z.string(), type: z.string(), location: z.string(), questions: z.string().array().optional() }).safeParse(req.body)
+        const jobSchema = z.object({
+            title: z.string(),
+            description: z.string(),
+            type: z.string(),
+            location: z.string(),
+            questions: z.string().array().optional(),
+        });
+
+        const job = jobSchema.safeParse(req.body);
+
         if (!job.success) {
-            throw new ValidationError(job.error.message)
+            throw new ValidationError(job.error.message);
         }
-        await Job.create(job)
-        res.status(201).send()
 
-    }catch (error){
-        next(error)
+        await Job.create(job.data);
+        res.status(201).send();
+    } catch (error) {
+        next(error);
     }
-
-}
+};
 
 export const getJobById = async (req:Request, res:Response,next:NextFunction) => {
 

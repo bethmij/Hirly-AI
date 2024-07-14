@@ -35,23 +35,28 @@ export const getApplications = async (req: Request, res: Response, next: NextFun
 
 
 export const saveApplications = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.body);
+
     try {
-        const jobApplication = z.object({
+        const jobApplicationSchema = z.object({
             userId: z.string(),
             fullName: z.string(),
             answers: z.string().array(),
             job: z.string(),
-            rating: z.string().optional()
-        }).safeParse(req.body)
+            rating: z.string().optional(),
+        });
+
+        const jobApplication = jobApplicationSchema.safeParse(req.body);
 
         if (!jobApplication.success) {
-            throw new ValidationError(jobApplication.error.message);
+            throw new Error(jobApplication.error.message);
         }
-        const createdJobApplication = await JobApplication.create(jobApplication)
-        await generateRating(createdJobApplication._id)
-        res.status(201).send()
+
+        const createdJobApplication = await JobApplication.create(jobApplication.data);
+        await generateRating(createdJobApplication._id);
+        res.status(201).send();
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 

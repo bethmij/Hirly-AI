@@ -8,9 +8,9 @@ import GlobalErrorHandlingMiddleware from "./api/middleware/global-error-handler
 
 const app = express();
 app.use(express.json());
-
-connectionDB()
 app.use(cors())
+connectionDB()
+
 
 app.use("/jobs",jobRouter)
 app.use("/jobApplication",jobApplicationRouter)

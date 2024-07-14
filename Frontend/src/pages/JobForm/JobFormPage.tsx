@@ -54,10 +54,11 @@ export const JobFormPage: React.FC = () => {
                     answers: [data.question0, data.question1, data.question2],
                     job: jobId
                 }
-                await postJobApplication(jobApplication)
+                postJobApplication(jobApplication).then(() => {
+                    reset();
+                }).catch(() => {alert("Failed to submit application")});
             }
         }
-        reset();
     }
 
     if (!isLoaded) {

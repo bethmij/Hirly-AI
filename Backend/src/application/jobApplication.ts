@@ -35,9 +35,7 @@ export const getApplications = async (req: Request, res: Response, next: NextFun
 
 
 export const saveApplications = async (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.body);
-
-    try {
+       try {
         const jobApplicationSchema = z.object({
             userId: z.string(),
             fullName: z.string(),

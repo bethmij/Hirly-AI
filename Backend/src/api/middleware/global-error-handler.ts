@@ -15,6 +15,13 @@ const GlobalErrorHandlingMiddleware = (error: Error, req: Request, res: Response
             console.error(error)
             return res.status(401).json({ message: error.message.replaceAll("\n", "") });
 
+        case "Error":
+            if (error.message === "Unauthenticated") {
+                console.error(error)
+                return res.status(401).json({ message: error.message.replaceAll("\n", "") });
+            }
+            break;
+
         default:
             console.error(error)
             return res.status(500).json({ message: error.message });

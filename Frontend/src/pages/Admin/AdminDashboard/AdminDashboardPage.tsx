@@ -1,7 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import {Doughnut} from 'react-chartjs-2';
 import 'chart.js/auto';
-import {AdminNavBar} from "@/components/shared/NavBar/AdminNavBar.tsx";
 import {AiOutlineForm, AiOutlineLoading3Quarters} from "react-icons/ai";
 import {FaRegUser} from "react-icons/fa";
 import axios from "axios";
@@ -104,7 +103,6 @@ export const AdminDashboardPage = () => {
 
     return (
         <>
-            <AdminNavBar/>
             {isLoading ? (
                 <div className="flex justify-center items-center  w-full ">
                     <AiOutlineLoading3Quarters size={40} className="animate-spin"/>
@@ -147,14 +145,14 @@ export const AdminDashboardPage = () => {
                     <div className="flex flex-wrap w-full justify-center h-screen mt-16">
                         {Array.from(chartData.entries()).map(([key, value]) => (
                             <div key={key} className="flex items-center flex-col w-1/3 h-1/3">
-                                <h1 className="text-2xl w-full text-center mb-8 text-white">{key}</h1>
+                                <h1 className="text-2xl w-full text-center mb-2 text-white">{key}</h1>
+                                <h1 className="text-xl w-full text-center mb-8 text-white">Total Applicants : {value.reduce((acc: never, current: never) => acc + current, 0)}</h1>
                                 <Doughnut ref={ref} data={pieChartData(value)} options={options}/>
                             </div>
                         ))}
                     </div>
                 </>
             )}
-
         </>
     )
 };

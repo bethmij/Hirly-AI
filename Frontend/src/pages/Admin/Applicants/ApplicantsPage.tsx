@@ -1,4 +1,3 @@
-import {AdminNavBar} from "@/components/shared/NavBar/AdminNavBar.tsx";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -47,7 +46,6 @@ export const ApplicantsPage = () => {
 
     return (
         <>
-            <AdminNavBar/>
             <div className={"px-44"}>
                 {isLoading ? (
                     <div className="flex justify-center items-center mt-40 gap-x-5 w-full ">

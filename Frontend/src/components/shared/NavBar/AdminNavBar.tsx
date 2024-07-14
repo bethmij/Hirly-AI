@@ -1,6 +1,15 @@
 import logo from "@/assets/logo.png";
 import {Link, useLocation} from "react-router-dom";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
+
+const customAppearance = {
+    elements: {
+        userButtonAvatarBox: {
+            width: '50px',
+            height: '50px'
+        }
+    }
+};
 
 export const AdminNavBar = () => {
     const location = useLocation();
@@ -26,10 +35,14 @@ export const AdminNavBar = () => {
                         {setMenuItem("/admin/job", "Jobs")}
                         {setMenuItem("/admin/postJob", "Post-Job")}
 
-                    <Avatar className="w-12 h-12">
-                        <AvatarImage src="https://github.com/shadcn.pn"/>
-                        <AvatarFallback>B</AvatarFallback>
-                    </Avatar>
+                    <SignedOut>
+                        <div className="flex gap-x-5 bg-blue px-5 rounded-2xl">
+                            <SignInButton/>
+                        </div>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton appearance={customAppearance}/>
+                    </SignedIn>
                 </div>
             </div>
         </>

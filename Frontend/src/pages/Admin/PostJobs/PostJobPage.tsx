@@ -6,7 +6,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {jobTypes, cities, rdCities, rdJobTypes} from "@/assets/Data/arrays.ts"
 import {Button} from "@/components/ui/button.tsx";
 import {useState} from "react";
-import axios from "axios";
+import {postJob} from "@/lib/services/api/job.ts";
 
 const postJobSchema = z.object({
     title: z.string().min(10, {message: "Title should at least contain 10 characters"}),
@@ -32,20 +32,13 @@ export const PostJobPage = () => {
     const onSubmit = async (data: FieldValues) => {
 
         data.questions = [data.question1, data.question2, data.question3]
-
-        const response = await axios.post("http://localhost:4000/jobs", JSON.stringify(data), {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        if (response.status === 201) {
-            alert("job posted")
-        } else {
-            alert("error")
+        try {
+            await postJob(data);
+            reset();
+            setResetForm(true);
+        } catch (error) {
+            console.error(error);
         }
-        reset()
-        setResetForm(true)
-
     }
 
     return (

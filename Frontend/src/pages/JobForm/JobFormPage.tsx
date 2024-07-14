@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {Navigate, useParams} from "react-router-dom";
-import axios from "axios";
 import z from "zod";
 import {FieldValues, useForm} from "react-hook-form";
 import {zodResolver} from '@hookform/resolvers/zod';
@@ -15,25 +14,10 @@ import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {CgUnavailable} from "react-icons/cg";
 import {Job, JobApplication} from "@/assets/Data/interfaces.ts";
 import {useUser} from "@clerk/clerk-react";
-
-const getJobApplication = async (jobId: string) => {
-    const token = await window.Clerk.session.getToken();
-    try {
-        const job = await axios.get(`http://localhost:4000/jobs/${jobId}`,{
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-        return job.data
-    } catch (error) {
-        if (typeof error === 'object' && error !== null && 'message' in error) {
-            console.log((error as Error).message);
-        }
-    }
-}
+import {getJobApplication} from "@/lib/services/api/job.ts";
+import {postJobApplication} from "@/lib/services/api/jobApplication.ts";
 
 const questionErrorMsg: string = "Answer should consist of more than 10 letters";
-
 const schema = z.object({
     name: z.string(),
     question0: z.string().min(10, {message: questionErrorMsg}),
@@ -70,24 +54,7 @@ export const JobFormPage: React.FC = () => {
                     answers: [data.question0, data.question1, data.question2],
                     job: jobId
                 }
-                try {
-                    const token = await window.Clerk.session.getToken();
-                    const response = await axios.post("http://localhost:4000/jobApplication",JSON.stringify(jobApplication),{
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
-                        }
-                    })
-                    if(response.status === 201){
-                        alert("application saved")
-                    }else{
-                        alert("application saving failed")
-                    }
-                }catch (error){
-                    console.log(error)
-                }
-
-                console.log(jobApplication)
+                await postJobApplication(jobApplication)
             }
         }
         reset();

@@ -1,28 +1,14 @@
 import {AdminNavBar} from "@/components/shared/NavBar/AdminNavBar.tsx";
 import {Link, useParams} from "react-router-dom";
-import axios from "axios";
 import {useEffect, useState} from "react";
 import {JobApplication} from "@/assets/Data/interfaces.ts";
-
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {MdOutlineErrorOutline} from "react-icons/md";
 import {CgUnavailable} from "react-icons/cg";
 import {Separator} from "@/components/ui/separator.tsx";
 import {FaBusinessTime} from "react-icons/fa";
 import {FaLocationDot} from "react-icons/fa6";
-
-
-const getJobApplication = async (jobId: string) => {
-    try {
-        const response = await axios.get(`http://localhost:4000/jobApplication?jobId=${jobId}`);
-        return response.data;
-    } catch (error) {
-        if (typeof error === 'object' && error !== null && 'message' in error) {
-            console.log((error as Error).message);
-        }
-        return [];
-    }
-}
+import {getJobApplication} from "@/lib/services/api/jobApplication.ts";
 
 export const PostedJobsById = () => {
     const {jobId} = useParams<{ jobId: string }>();

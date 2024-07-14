@@ -61,7 +61,7 @@ export const JobFormPage: React.FC = () => {
     }
 
     if (!isLoaded) {
-        return <div>Loading...</div>;
+        return;
     }
 
     if (!isSignedIn) {

@@ -1,4 +1,3 @@
-import {AdminNavBar} from "@/components/shared/NavBar/AdminNavBar.tsx";
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {JobApplication} from "@/assets/Data/interfaces.ts";
@@ -35,7 +34,6 @@ export const PostedJobsById = () => {
 
     return (
         <>
-            <AdminNavBar/>
             <div className="px-44">
                 {isLoading ? (
                     <div className="flex justify-center items-center mt-40 gap-x-5 w-full ">
@@ -61,7 +59,7 @@ export const PostedJobsById = () => {
                         </div>
                         <Separator className="mb-10"/>
                         {jobApplication.map((application) => (
-                            <Link to={`/admin/applicants/${application._id}`}>
+                            <Link to={`/admin/postJob/${jobId}/applicants/${application._id}`}>
                                 <div key={application._id}
                                      className="flex justify-between cursor-pointer w-full h-20 gap-x-10 mb-10 bg-blue rounded-md">
                                     <h1 className={"self-center ms-10 text-xl"}>{application.fullName}</h1>

@@ -7,6 +7,16 @@ interface Props {
     title:string
     icon:React.ReactNode
 }
+
+const customAppearance = {
+    elements: {
+        userButtonAvatarBox: {
+            width: '50px',
+            height: '50px'
+        }
+    }
+}
+
 export const NavBar = ({title,icon}:Props) => {
 
     const location = useLocation();
@@ -35,7 +45,7 @@ export const NavBar = ({title,icon}:Props) => {
                         <SignInButton />
                     </SignedOut>
                     <SignedIn>
-                        <UserButton />
+                        <UserButton appearance={customAppearance}/>
                     </SignedIn>
                 </div>
             </div>

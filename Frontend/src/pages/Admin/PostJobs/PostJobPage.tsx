@@ -1,4 +1,3 @@
-import {AdminNavBar} from "@/components/shared/NavBar/AdminNavBar.tsx";
 import z from "zod";
 import {InputItem} from "@/components/shared/InputItems/InputItem.tsx";
 import {FieldValues, useForm} from "react-hook-form";
@@ -43,7 +42,6 @@ export const PostJobPage = () => {
 
     return (
         <>
-            <AdminNavBar/>
             <h1 className="w-full text-center mt-10 text-4xl opacity-80">Create A Job Posting</h1>
 
             <form className="flex flex-col gap-y-10 px-40 mt-10" onSubmit={handleSubmit(onSubmit)}>

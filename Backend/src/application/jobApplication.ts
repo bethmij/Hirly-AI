@@ -36,6 +36,7 @@ export const getApplications = async (req: Request, res: Response, next: NextFun
 export const saveApplications = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const jobApplication = z.object({
+            userId: z.string(),
             fullName: z.string(),
             answers: z.string().array(),
             job: z.string(),

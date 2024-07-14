@@ -9,6 +9,7 @@ export interface Job {
 
 export interface JobApplication {
     _id?: string
+    userId: string
     fullName: string
     answers: string[]
     job:string

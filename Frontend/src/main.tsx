@@ -7,12 +7,14 @@ import {HomePage} from "@/pages/Home/HomePage.tsx";
 import JobPage from "@/pages/Job/JobPage.tsx";
 import {RootLayout} from "@/layout/RootLayout/RootLayout.tsx";
 import {JobFormPage} from "@/pages/JobForm/JobFormPage.tsx";
-import {AdminDashboardPage} from "@/pages/AdminDashboard/AdminDashboardPage.tsx";
-import {JobsPage} from "@/pages/PostedJobs/JobsPage.tsx";
-import {PostJobPage} from "@/pages/PostJobs/PostJobPage.tsx";
-import {PostedJobsById} from "@/pages/PostedJobsById/PostedJobsById.tsx";
-import {ApplicantsPage} from "@/pages/Applicants/ApplicantsPage.tsx";
+import {AdminDashboardPage} from "@/pages/Admin/AdminDashboard/AdminDashboardPage.tsx";
+import {JobsPage} from "@/pages/Admin/PostedJobs/JobsPage.tsx";
+import {PostJobPage} from "@/pages/Admin/PostJobs/PostJobPage.tsx";
+import {PostedJobsById} from "@/pages/Admin/PostedJobsById/PostedJobsById.tsx";
+import {ApplicantsPage} from "@/pages/Admin/Applicants/ApplicantsPage.tsx";
 import {ClerkProvider} from "@clerk/clerk-react";
+import {SigninPage} from "@/pages/Login/Signin/SigninPage.tsx";
+import {SignupPage} from "@/pages/Login/Signup/SignupPage.tsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage/>
     },
+    {
+        path:"/signin",
+        element: <SigninPage/>
+    },
+    {
+        path:"/signup",
+        element: <SignupPage/>
+    }
 
 ])
 

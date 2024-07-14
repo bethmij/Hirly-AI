@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 import axios from "axios";
 import z from "zod";
 import {FieldValues, useForm} from "react-hook-form";
@@ -14,6 +14,7 @@ import {MdFormatAlignRight, MdOutlineErrorOutline} from "react-icons/md";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {CgUnavailable} from "react-icons/cg";
 import {Job, JobApplication} from "@/assets/Data/interfaces.ts";
+import {useUser} from "@clerk/clerk-react";
 
 const getJobApplication = async (jobId: string) => {
     const token = await window.Clerk.session.getToken();
@@ -44,6 +45,7 @@ export const JobFormPage: React.FC = () => {
     const [job, setJob] = useState<Job | null>(null)
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
+    const { isLoaded, isSignedIn, user } = useUser()
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm({resolver: zodResolver(schema)});
     const {jobId} = useParams<{ jobId: string }>()
@@ -61,31 +63,42 @@ export const JobFormPage: React.FC = () => {
     const onSubmit = async (data: FieldValues) => {
         console.log(data);
         if(jobId) {
-            const jobApplication: JobApplication = {
-                fullName: data.name,
-                answers: [data.question0, data.question1, data.question2],
-                job: jobId
-            }
-            try {
-                const token = await window.Clerk.session.getToken();
-                const response = await axios.post("http://localhost:4000/jobApplication",JSON.stringify(jobApplication),{
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-                if(response.status === 201){
-                    alert("application saved")
-                }else{
-                    alert("application saving failed")
+            if(user){
+                const jobApplication: JobApplication = {
+                    userId: user?.id,
+                    fullName: data.name,
+                    answers: [data.question0, data.question1, data.question2],
+                    job: jobId
                 }
-            }catch (error){
-                console.log(error)
-            }
+                try {
+                    const token = await window.Clerk.session.getToken();
+                    const response = await axios.post("http://localhost:4000/jobApplication",JSON.stringify(jobApplication),{
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        }
+                    })
+                    if(response.status === 201){
+                        alert("application saved")
+                    }else{
+                        alert("application saving failed")
+                    }
+                }catch (error){
+                    console.log(error)
+                }
 
-            console.log(jobApplication)
+                console.log(jobApplication)
+            }
         }
         reset();
+    }
+
+    if (!isLoaded) {
+        return <div>Loading...</div>;
+    }
+
+    if (!isSignedIn) {
+        return <Navigate to="/signin" />;
     }
 
     return (

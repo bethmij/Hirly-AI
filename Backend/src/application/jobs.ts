@@ -1,5 +1,5 @@
 import {NextFunction, Request, Response} from "express";
-import Job from "../infrastructure/schemas/jobs";
+import {Job} from "../infrastructure/schemas/jobs";
 import ValidationError from "../domain/errors/validation-error";
 import z from "zod";
 import NotFoundError from "../domain/errors/not-found-error";

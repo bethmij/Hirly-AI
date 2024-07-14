@@ -1,15 +1,15 @@
 import mongoose, { Document, Schema, Types } from 'mongoose';
-import {Job} from './jobs';
+import {Job, JobInterface} from './jobs';
 
-interface JobApplication extends Document {
+interface JobApplicationInterface extends Document {
     userId: string;
     fullName: string;
     answers: string[];
-    job: Types.ObjectId | Job;
+    job: Types.ObjectId | JobInterface;
     rating?: string;
 }
 
-const jobApplicationSchema = new Schema<JobApplication>({
+const jobApplicationSchema = new Schema<JobApplicationInterface>({
     userId: { type: String, required: true },
     fullName: { type: String, required: true },
     answers: { type: [String], required: true },
@@ -17,6 +17,6 @@ const jobApplicationSchema = new Schema<JobApplication>({
     rating: { type: String },
 });
 
-export const JobApplication = mongoose.model<JobApplication>('JobApplication', jobApplicationSchema);
+export const JobApplication = mongoose.model<JobApplicationInterface>('JobApplication', jobApplicationSchema);
 
 

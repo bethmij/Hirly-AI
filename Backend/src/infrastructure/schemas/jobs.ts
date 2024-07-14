@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface Job {
+export interface JobInterface {
     _id: string;
     title: string;
     type: string;
@@ -38,4 +38,4 @@ const jobSchema = new mongoose.Schema({
     }
 )
 
-export const Job = mongoose.model<Job>("Job", jobSchema)
+export const Job = mongoose.model<JobInterface>("Job", jobSchema)

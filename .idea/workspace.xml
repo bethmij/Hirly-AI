@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="changing backend urls">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/api/rating.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/api/rating.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobApplication.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/infrastructure/schemas/jobs.ts" afterDir="false" />
+    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="ratings updated">
+      <change beforePath="$PROJECT_DIR$/Backend/src/api/rating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/api/rating.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/application/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/application/jobApplication.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720965096508</updated>
-      <workItem from="1720965098894" duration="10273000" />
+      <workItem from="1720965098894" duration="10589000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
@@ -172,7 +170,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720982309921</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ratings updated">
+      <option name="closed" value="true" />
+      <created>1720984978614</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720984978614</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ratings updated">
+      <option name="closed" value="true" />
+      <created>1720985269651</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720985269651</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +202,7 @@
     <MESSAGE value="reset domain api" />
     <MESSAGE value="handlers modified" />
     <MESSAGE value="changing backend urls" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing backend urls" />
+    <MESSAGE value="ratings updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="ratings updated" />
   </component>
 </project>

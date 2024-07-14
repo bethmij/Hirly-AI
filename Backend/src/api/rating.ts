@@ -1,4 +1,3 @@
-import { Types } from "mongoose";
 import OpenAI from "openai";
 import {JobApplication} from "../infrastructure/schemas/jobApplication";
 

@@ -15,10 +15,14 @@ import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {CgUnavailable} from "react-icons/cg";
 import {Job, JobApplication} from "@/assets/Data/interfaces.ts";
 
-
 const getJobApplication = async (jobId: string) => {
+    const token = await window.Clerk.session.getToken();
     try {
-        const job = await axios.get(`http://localhost:4000/jobs/${jobId}`)
+        const job = await axios.get(`http://localhost:4000/jobs/${jobId}`,{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
         return job.data
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {
@@ -63,9 +67,11 @@ export const JobFormPage: React.FC = () => {
                 job: jobId
             }
             try {
+                const token = await window.Clerk.session.getToken();
                 const response = await axios.post("http://localhost:4000/jobApplication",JSON.stringify(jobApplication),{
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
                     }
                 })
                 if(response.status === 201){
@@ -87,16 +93,16 @@ export const JobFormPage: React.FC = () => {
             <NavBar title={"Job Form"} icon={<MdFormatAlignRight className="opacity-70" size={30}/>}/>
             <div className="px-44">
                 {isLoading ? (
-                    <div className="flex justify-center items-center  w-full ">
+                    <div className="flex justify-center items-center  w-full mt-24">
                         <AiOutlineLoading3Quarters size={40} className="animate-spin"/>
                     </div>
                 ) : isError ? (
-                    <div className="flex justify-center items-center  w-full ">
+                    <div className="flex justify-center items-center  w-full mt-24">
                         <MdOutlineErrorOutline size={40}/>
                         <h2>Error while fetching data</h2>
                     </div>
                 ) : !job ? (
-                    <div className="flex justify-center items-center  w-full ">
+                    <div className="flex justify-center items-center  w-full mt-24">
                         <CgUnavailable size={40} className=" opacity-60"/>
                         <h2 className="text-2xl opacity-60">Jobs unavailable</h2>
                     </div>

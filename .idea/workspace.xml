@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="rebuild project">
+    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="reset domain api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Admin/Applicants/ApplicantsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Admin/Applicants/ApplicantsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Admin/PostedJobsById/PostedJobsById.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Admin/PostedJobsById/PostedJobsById.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720965096508</updated>
-      <workItem from="1720965098894" duration="5613000" />
+      <workItem from="1720965098894" duration="7792000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
@@ -146,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720977845721</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="reset domain api">
+      <option name="closed" value="true" />
+      <created>1720979487690</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720979487690</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +172,7 @@
     <MESSAGE value="jobApplication modified" />
     <MESSAGE value="netlify modified" />
     <MESSAGE value="rebuild project" />
-    <option name="LAST_COMMIT_MESSAGE" value="rebuild project" />
+    <MESSAGE value="reset domain api" />
+    <option name="LAST_COMMIT_MESSAGE" value="reset domain api" />
   </component>
 </project>

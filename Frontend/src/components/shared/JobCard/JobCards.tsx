@@ -7,7 +7,6 @@ import {CgUnavailable} from "react-icons/cg";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-
 interface Job {
     _id: string
     title: string

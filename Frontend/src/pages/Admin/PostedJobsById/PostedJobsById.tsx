@@ -59,7 +59,7 @@ export const PostedJobsById = () => {
                         </div>
                         <Separator className="mb-10"/>
                         {jobApplication.map((application) => (
-                            <Link to={`/admin/postJob/${jobId}/applicants/${application._id}`}>
+                            <Link key={application._id} to={`/admin/postJob/${jobId}/applicants/${application._id}`}>
                                 <div key={application._id}
                                      className="flex justify-between cursor-pointer w-full h-20 gap-x-10 mb-10 bg-blue rounded-md">
                                     <h1 className={"self-center ms-10 text-xl"}>{application.fullName}</h1>

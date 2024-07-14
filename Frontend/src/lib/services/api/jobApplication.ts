@@ -1,9 +1,9 @@
 import axios from "axios";
-import {JobApplication} from "@/assets/Data/interfaces.ts";
+import {Application, JobApplication} from "@/assets/Data/interfaces.ts";
 
 export const getJobApplication = async (jobId: string) => {
     try {
-        const response = await axios.get(`https://hirly-ai-production.up.railway.app/jobApplication?jobId=${jobId}`);
+        const response = await axios.get(`http://localhost:4000/jobApplication?jobId=${jobId}`);
         return response.data;
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {
@@ -13,10 +13,22 @@ export const getJobApplication = async (jobId: string) => {
     }
 }
 
+export const getApplicant = async (userId: string) => {
+    try {
+        const response = await axios.get<Application[]>(`http://localhost:4000/jobApplication?userId=${userId}`)
+        return response.data;
+    } catch (error) {
+        if (typeof error === 'object' && error !== null && 'message' in error) {
+            console.log((error as Error).message);
+        }
+        return null;
+    }
+}
+
 export const postJobApplication = async (jobApplication:JobApplication) => {
     try {
         const token = await window.Clerk.session.getToken();
-        const response = await axios.post("https://hirly-ai-production.up.railway.app/jobApplication",JSON.stringify(jobApplication),{
+        const response = await axios.post("http://localhost:4000/jobApplication",JSON.stringify(jobApplication),{
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`

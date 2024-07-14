@@ -1,24 +1,12 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {Application} from "@/assets/Data/interfaces.ts";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {MdOutlineErrorOutline} from "react-icons/md";
 import {Separator} from "@/components/ui/separator.tsx";
 import {Textarea} from "@/components/ui/textarea.tsx";
 import {Label} from "@/components/ui/label.tsx";
-
-const getApplicant = async (userId: string) => {
-    try {
-        const response = await axios.get<Application[]>(`http://localhost:4000/jobApplication?userId=${userId}`)
-        return response.data;
-    } catch (error) {
-        if (typeof error === 'object' && error !== null && 'message' in error) {
-            console.log((error as Error).message);
-        }
-        return null;
-    }
-}
+import {getApplicant} from "@/lib/services/api/jobApplication.ts";
 
 export const ApplicantsPage = () => {
 

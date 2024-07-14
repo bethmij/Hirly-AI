@@ -1,7 +1,7 @@
 import logo from "@/assets/logo.png";
 import {Link, useLocation} from "react-router-dom";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import React from "react";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
 
 interface Props {
     title:string
@@ -31,10 +31,12 @@ export const NavBar = ({title,icon}:Props) => {
                 <div className="flex me-10 gap-x-10 items-center">
                     {setMenuItem("/","Home")}
                     {setMenuItem("/job","Jobs")}
-                    <Avatar className="w-12 h-12">
-                        <AvatarImage src="https://github.com/shadcn.pn"/>
-                        <AvatarFallback>B</AvatarFallback>
-                    </Avatar>
+                    <SignedOut>
+                        <SignInButton />
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
                 </div>
             </div>
         </>

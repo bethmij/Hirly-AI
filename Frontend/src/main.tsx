@@ -12,51 +12,59 @@ import {JobsPage} from "@/pages/PostedJobs/JobsPage.tsx";
 import {PostJobPage} from "@/pages/PostJobs/PostJobPage.tsx";
 import {PostedJobsById} from "@/pages/PostedJobsById/PostedJobsById.tsx";
 import {ApplicantsPage} from "@/pages/Applicants/ApplicantsPage.tsx";
+import {ClerkProvider} from "@clerk/clerk-react";
 
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+
+if (!PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key")
+}
 
 const router = createBrowserRouter([
     {
-        element:<RootLayout/>,
-        children:[
+        element: <RootLayout/>,
+        children: [
             {
-                path:"/job",
-                element:<JobPage/>
+                path: "/job",
+                element: <JobPage/>
             },
             {
                 path: "/jobForm/:jobId",
                 element: <JobFormPage/>
             },
             {
-                path:"/admin/dashboard",
-                element:<AdminDashboardPage/>
+                path: "/admin/dashboard",
+                element: <AdminDashboardPage/>
             },
             {
                 path: "/admin/job",
                 element: <JobsPage/>
             },
             {
-                path:"/admin/postJob",
-                element:<PostJobPage/>
+                path: "/admin/postJob",
+                element: <PostJobPage/>
             },
             {
-                path:"admin/postJob/:jobId",
-                element:<PostedJobsById/>
+                path: "admin/postJob/:jobId",
+                element: <PostedJobsById/>
             },
             {
-                path:"admin/applicants/:userId",
-                element:<ApplicantsPage/>
+                path: "admin/applicants/:userId",
+                element: <ApplicantsPage/>
             }
         ]
     },
     {
-        path:"/",
-        element:<HomePage/>
+        path: "/",
+        element: <HomePage/>
     },
 
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+            <RouterProvider router={router}/>
+        </ClerkProvider>
+    </React.StrictMode>,
 )

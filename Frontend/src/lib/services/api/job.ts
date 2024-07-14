@@ -4,7 +4,7 @@ import {FieldValues} from "react-hook-form";
 export const getJobApplication = async (jobId: string) => {
     const token = await window.Clerk.session.getToken();
     try {
-        const job = await axios.get(`http://localhost:4000/jobs/${jobId}`,{
+        const job = await axios.get(`https://hirly-ai-production.up.railway.app/jobs/${jobId}`,{
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -19,7 +19,7 @@ export const getJobApplication = async (jobId: string) => {
 
 export const postJob = async (data: FieldValues) => {
     try {
-        const response = await axios.post("http://localhost:4000/jobs", JSON.stringify(data), {
+        const response = await axios.post("https://hirly-ai-production.up.railway.app/jobs", JSON.stringify(data), {
             headers: {
                 'Content-Type': 'application/json'
             }

@@ -18,7 +18,7 @@ interface Job {
 
 const getJobs = async (): Promise<Job[]> => {
     try {
-        const response = await axios.get<Job[]>("http://localhost:4000/jobs");
+        const response = await axios.get<Job[]>("https://hirly-ai-production.up.railway.app/jobs");
         return response.data || [];
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {

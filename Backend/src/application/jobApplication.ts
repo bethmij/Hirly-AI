@@ -1,9 +1,10 @@
 import {NextFunction, Request, Response} from "express";
-import JobApplication from "../infrastructure/schemas/jobApplication";
-import {generateRatings} from "../api/rating";
+import {JobApplication} from "../infrastructure/schemas/jobApplication";
+
 import NotFoundError from "../domain/errors/not-found-error";
 import z from "zod";
 import ValidationError from "../domain/errors/validation-error";
+import {generateRating} from "../api/rating";
 
 export const getApplications = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -47,7 +48,7 @@ export const saveApplications = async (req: Request, res: Response, next: NextFu
             throw new ValidationError(jobApplication.error.message);
         }
         const createdJobApplication = await JobApplication.create(jobApplication)
-        await generateRatings(createdJobApplication._id)
+        await generateRating(createdJobApplication._id)
         res.status(201).send()
     } catch (error) {
         next(error)

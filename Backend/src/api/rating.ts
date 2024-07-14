@@ -2,9 +2,9 @@ import { Types } from "mongoose";
 import OpenAI from "openai";
 import {JobApplication} from "../infrastructure/schemas/jobApplication";
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const client = new OpenAI({ apiKey: process.env.OPEN_API_KEY});
 
-export async function generateRating(jobApplicationId: Types.ObjectId) {
+export async function generateRating(jobApplicationId: unknown) {
     const jobApplication = await JobApplication.findById(
         jobApplicationId
     ).populate<{ job: { title: string; answers: string[] } }>("job");

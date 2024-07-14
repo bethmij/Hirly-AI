@@ -1,6 +1,6 @@
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {JobApplication} from "@/assets/Data/interfaces.ts";
+import {Application} from "@/assets/Data/interfaces.ts";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {MdOutlineErrorOutline} from "react-icons/md";
 import {CgUnavailable} from "react-icons/cg";
@@ -13,7 +13,7 @@ export const PostedJobsById = () => {
     const {jobId} = useParams<{ jobId: string }>();
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    const [jobApplication, setJobApplication] = useState<JobApplication[] | null>(null);
+    const [jobApplication, setJobApplication] = useState<Application[] | null>(null);
 
     useEffect(() => {
         setIsLoading(true);

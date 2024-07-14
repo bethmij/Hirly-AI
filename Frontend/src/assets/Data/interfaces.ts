@@ -15,3 +15,12 @@ export interface JobApplication {
     job:string
     rating?: string
 }
+
+export interface Application {
+    _id?: string
+    userId: string
+    fullName: string
+    answers: string[]
+    job:Job
+    rating?: string
+}

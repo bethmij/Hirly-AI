@@ -4,12 +4,12 @@ import 'chart.js/auto';
 import {AiOutlineForm, AiOutlineLoading3Quarters} from "react-icons/ai";
 import {FaRegUser} from "react-icons/fa";
 import axios from "axios";
-import {Job, JobApplication} from "@/assets/Data/interfaces.ts";
+import {Application, Job} from "@/assets/Data/interfaces.ts";
 import {MdOutlineErrorOutline} from "react-icons/md";
 
 const getAllApplications = async () => {
     try {
-        const response = await axios.get<JobApplication[]>('http://localhost:4000/jobApplication');
+        const response = await axios.get<Application[]>('http://localhost:4000/jobApplication');
         return response.data;
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {
@@ -33,7 +33,7 @@ const getAllJobForm = async () => {
 
 export const AdminDashboardPage = () => {
     const ref = useRef();
-    const [applicants, setApplicants] = useState<JobApplication[]>([])
+    const [applicants, setApplicants] = useState<Application[]>([])
     const [jobForm, setJobForm] = useState<Job[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)

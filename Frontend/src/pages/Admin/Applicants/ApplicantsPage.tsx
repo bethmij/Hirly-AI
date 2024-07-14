@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {JobApplication} from "@/assets/Data/interfaces.ts";
+import {Application} from "@/assets/Data/interfaces.ts";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {MdOutlineErrorOutline} from "react-icons/md";
 import {Separator} from "@/components/ui/separator.tsx";
@@ -10,7 +10,7 @@ import {Label} from "@/components/ui/label.tsx";
 
 const getApplicant = async (userId: string) => {
     try {
-        const response = await axios.get<JobApplication[]>(`http://localhost:4000/jobApplication?userId=${userId}`)
+        const response = await axios.get<Application[]>(`http://localhost:4000/jobApplication?userId=${userId}`)
         return response.data;
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {
@@ -23,7 +23,7 @@ const getApplicant = async (userId: string) => {
 export const ApplicantsPage = () => {
 
     const {userId} = useParams<{ userId: string }>()
-    const [applicant, setApplicant] = useState<JobApplication[] | null>(null)
+    const [applicant, setApplicant] = useState<Application[] | null>(null)
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
     const [divColor, setDivColor] = useState("")

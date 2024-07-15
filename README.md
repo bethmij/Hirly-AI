@@ -8,7 +8,7 @@ This web application is designed to streamline the job application process. Comp
 
 ## Technology stack
    ```markdown
-    ✅ Frontend: React TS
+    ✅ Frontend: React Vite TS
     ✅ Backend: Node Express TS
     ✅ Database: MongoDB
     ✅ Fine-tuning: OpenAI

@@ -23,7 +23,7 @@ export const ApplicantsPage = () => {
                 .then(data => {
                     if (data) {
                         setApplicant(data)
-                        setDivColor(data[0].rating === "bad" ? "bg-red" : data[0].rating === "Moderate" ?
+                        setDivColor(data[0].rating === "Bad" ? "bg-red" : data[0].rating === "Moderate" ?
                             "bg-yellow-500" : data[0].rating === "good" ? "bg-green-600" : "bg-cyan-200")
                     }
                 })

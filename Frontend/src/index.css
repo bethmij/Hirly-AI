@@ -66,4 +66,5 @@
     ::-webkit-scrollbar-thumb:hover {
         @apply bg-blue rounded
     }
+
 }

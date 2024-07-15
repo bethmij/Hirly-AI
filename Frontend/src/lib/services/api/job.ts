@@ -1,5 +1,6 @@
 import axios from "axios";
 import {FieldValues} from "react-hook-form";
+import swal from "sweetalert";
 
 export const getJobApplication = async (jobId: string) => {
     const token = await window.Clerk.session.getToken();
@@ -18,19 +19,22 @@ export const getJobApplication = async (jobId: string) => {
 }
 
 export const postJob = async (data: FieldValues) => {
+    const token = await window.Clerk.session.getToken();
     try {
         const response = await axios.post("https://hirly-ai-production.up.railway.app/jobs", JSON.stringify(data), {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         })
         if (response.status === 201) {
             alert("job posted")
+            await swal("Success", `Job Posted Successfully!`, 'success')
 
         } else {
-            alert("error")
+            await swal("Error", `Job Posting Failed!`, 'error')
         }
     }catch (error) {
-        console.log(error)
+        await swal("Error", `Job Posting Failed!`, 'error')
     }
 }

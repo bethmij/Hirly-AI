@@ -14,7 +14,7 @@ export async function generateRating(jobApplicationId: unknown) {
 
     const completion = await client.chat.completions.create({
         messages: [{ role: "user", content }],
-        model:"ft:gpt-3.5-turbo-0125:stemlink:hirly-ai:9dYhjaxf",
+        model:"ft:gpt-3.5-turbo-0125:stemlink:hirlyai:9l9HvoBo",
     });
 
     const strResponse = completion.choices[0].message.content;

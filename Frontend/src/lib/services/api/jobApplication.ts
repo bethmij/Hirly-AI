@@ -1,5 +1,6 @@
 import axios from "axios";
 import {Application, JobApplication} from "@/assets/Data/interfaces.ts";
+import swal from "sweetalert";
 
 export const getJobApplication = async (jobId: string) => {
     try {
@@ -34,12 +35,13 @@ export const postJobApplication = async (jobApplication:JobApplication) => {
                 'Authorization': `Bearer ${token}`
             }
         })
-        if(response.status === 201){
-            alert("application saved")
-        }else{
-            alert("application saving failed")
+        if (response.status === 201) {
+            await swal("Success", `Job Application Posted Successfully!`, 'success')
+
+        } else {
+            await swal("Error", `Job Application Posting Failed!`, 'error')
         }
-    }catch (error){
-        console.log(error)
+    }catch (error) {
+        await swal("Error", `Job Application Posting Failed!`, 'error')
     }
 }

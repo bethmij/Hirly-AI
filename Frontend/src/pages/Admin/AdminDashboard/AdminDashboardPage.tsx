@@ -60,8 +60,8 @@ export const AdminDashboardPage = () => {
         const chartData = new Map();
         jobForm.map(job => {
             const good = applicants.filter(app => app.job.title === job.title && app.rating === 'good').length;
-            const moderate = applicants.filter(app => app.job.title === job.title && app.rating === 'moderate').length;
-            const bad = applicants.filter(app => app.job.title === job.title && app.rating === 'bad').length;
+            const moderate = applicants.filter(app => app.job.title === job.title && app.rating === 'Moderate').length;
+            const bad = applicants.filter(app => app.job.title === job.title && app.rating === 'Bad').length;
             chartData.set(job.title, [good, moderate, bad]);
         })
         setChartData(chartData)
@@ -99,6 +99,12 @@ export const AdminDashboardPage = () => {
                 },
             },
         },
+        cutout: '70%',
+        elements: {
+            line: {
+                borderWidth: 2,
+            },
+        },
     };
 
     return (
@@ -112,7 +118,7 @@ export const AdminDashboardPage = () => {
                     <MdOutlineErrorOutline size={40}/>
                     <h2>Error while fetching data</h2>
                 </div>
-            ) : (
+            ) : jobForm ? (
                 <>
                     <div className={"flex w-full justify-around"}>
                         <div className="flex justify-around px-5  w-1/4 rounded-3xl h-36  items-center mt-10">
@@ -144,7 +150,7 @@ export const AdminDashboardPage = () => {
 
                     <div className="flex flex-wrap w-full justify-center h-screen mt-16">
                         {Array.from(chartData.entries()).map(([key, value]) => (
-                            <div key={key} className="flex items-center flex-col w-1/3 h-1/3">
+                            <div key={key} className="flex items-center flex-col w-1/3 h-1/3 mb-48">
                                 <h1 className="text-2xl w-full text-center mb-2 text-white">{key}</h1>
                                 <h1 className="text-xl w-full text-center mb-8 text-white">Total Applicants : {value.reduce((acc: never, current: never) => acc + current, 0)}</h1>
                                 <Doughnut ref={ref} data={pieChartData(value)} options={options}/>
@@ -152,7 +158,7 @@ export const AdminDashboardPage = () => {
                         ))}
                     </div>
                 </>
-            )}
+            ):null}
         </>
     )
 };

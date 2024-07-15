@@ -69,7 +69,7 @@ export const JobCards = () => {
 
     return (
         <>
-            <div className="flex flex-wrap gap-8 ms-16 mt-24 me-16">
+            <div className="flex flex-wrap justify-center  gap-8  mt-24 ">
                 {(isLoading) ? (
                     <div className="flex justify-center items-center  w-full ">
                         <AiOutlineLoading3Quarters size={40} className="animate-spin"/>
@@ -86,7 +86,7 @@ export const JobCards = () => {
                     </div>
                 ) : (
                     jobs.map((job) => (
-                        <div className="w-1/6 h-72  relative cursor-pointer">
+                        <div key={job._id} className="w-1/6 h-72 relative cursor-pointer">
                             {location.pathname === "/job" ?
                                 <Link to={`/jobForm/${job._id}`} className="w-full h-full ">
                                     {cardInfo(job.title, job.type, job.location)}

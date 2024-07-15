@@ -1,0 +1,40 @@
+.swal-modal {
+    background-color: #011a1f;
+    border: 3px solid #022730;
+}
+
+.swal-overlay {
+    background-color: rgba(0, 0, 0, 0.70);
+}
+
+.swal-text {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.swal-title {
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.swal-button {
+    color: #ffffff;
+    background-color: #011a1f;
+}
+
+.swal-button:hover {
+    background-color: #011a1f !important;
+}
+
+.custom-cancel-btn{
+    color: #ffffff;
+    background-color: #340606;
+}
+
+.custom-cancel-btn:hover{
+    background-color: #731010 !important;
+}
+
+.swal-icon--success:after, .swal-icon--success:before, .swal-icon--success__hide-corners{
+    display: none;
+}

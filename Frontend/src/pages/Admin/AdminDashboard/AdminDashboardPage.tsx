@@ -9,7 +9,7 @@ import {MdOutlineErrorOutline} from "react-icons/md";
 
 const getAllApplications = async () => {
     try {
-        const response = await axios.get<Application[]>('http://localhost:4000/jobApplication');
+        const response = await axios.get<Application[]>('https://hirly-ai-production.up.railway.app/jobApplication');
         return response.data;
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {
@@ -21,7 +21,7 @@ const getAllApplications = async () => {
 
 const getAllJobForm = async () => {
     try {
-        const response = await axios.get<Job[]>('http://localhost:4000/jobs');
+        const response = await axios.get<Job[]>('https://hirly-ai-production.up.railway.app/jobs');
         return response.data;
     } catch (error) {
         if (typeof error === 'object' && error !== null && 'message' in error) {

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="job post modified" />
+    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="add README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +46,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;js.last.introduce.type&quot;: &quot;VAR&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/bethmij/e6e5b486-6d96-406a-9def-132561b62dfc/IJSE/Working Projects/react-practice&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -102,6 +105,12 @@
       <option name="presentableId" value="Default" />
       <updated>1720965096508</updated>
       <workItem from="1720965098894" duration="14005000" />
+      <workItem from="1721024514406" duration="16250000" />
+      <workItem from="1723198727713" duration="24000" />
+      <workItem from="1723569406392" duration="253000" />
+      <workItem from="1723903429812" duration="1216000" />
+      <workItem from="1723921249978" duration="1243000" />
+      <workItem from="1724399405677" duration="1429000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
@@ -207,7 +216,31 @@
       <option name="project" value="LOCAL" />
       <updated>1720988458394</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="adding sweet alerts">
+      <option name="closed" value="true" />
+      <created>1721051636060</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721051636060</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add README.md">
+      <option name="closed" value="true" />
+      <created>1721055678922</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1721055678922</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add README.md">
+      <option name="closed" value="true" />
+      <created>1721056446527</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1721056446527</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +259,8 @@
     <MESSAGE value="ratings updated" />
     <MESSAGE value="schema updated" />
     <MESSAGE value="job post modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="job post modified" />
+    <MESSAGE value="adding sweet alerts" />
+    <MESSAGE value="add README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="add README.md" />
   </component>
 </project>

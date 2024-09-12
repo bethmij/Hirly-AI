@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="add README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Admin/AdminDashboard/AdminDashboardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Admin/AdminDashboard/AdminDashboardPage.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="deployed url changed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,6 +119,7 @@
       <workItem from="1725769061860" duration="113000" />
       <workItem from="1725936618263" duration="2262000" />
       <workItem from="1726074210387" duration="1842000" />
+      <workItem from="1726133724520" duration="293000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
@@ -256,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721056446527</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="deployed url changed">
+      <option name="closed" value="true" />
+      <created>1726134012872</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1726134012872</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +278,7 @@
     <MESSAGE value="job post modified" />
     <MESSAGE value="adding sweet alerts" />
     <MESSAGE value="add README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="add README.md" />
+    <MESSAGE value="deployed url changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="deployed url changed" />
   </component>
 </project>

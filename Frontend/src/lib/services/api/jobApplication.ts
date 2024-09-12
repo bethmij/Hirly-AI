@@ -45,3 +45,15 @@ export const postJobApplication = async (jobApplication:JobApplication) => {
         await swal("Error", `Job Application Posting Failed!`, 'error')
     }
 }
+
+export const getAllApplications = async () => {
+    try {
+        const response = await axios.get<Application[]>('https://hirly-ai-production.up.railway.app/jobApplication');
+        return response.data;
+    } catch (error) {
+        if (typeof error === 'object' && error !== null && 'message' in error) {
+            console.log((error as Error).message);
+        }
+        return []
+    }
+}

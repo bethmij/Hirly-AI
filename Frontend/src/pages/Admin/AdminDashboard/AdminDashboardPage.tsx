@@ -3,33 +3,10 @@ import {Doughnut} from 'react-chartjs-2';
 import 'chart.js/auto';
 import {AiOutlineForm, AiOutlineLoading3Quarters} from "react-icons/ai";
 import {FaRegUser} from "react-icons/fa";
-import axios from "axios";
 import {Application, Job} from "@/assets/Data/interfaces.ts";
 import {MdOutlineErrorOutline} from "react-icons/md";
-
-const getAllApplications = async () => {
-    try {
-        const response = await axios.get<Application[]>('https://hirly-ai-production.up.railway.app/jobApplication');
-        return response.data;
-    } catch (error) {
-        if (typeof error === 'object' && error !== null && 'message' in error) {
-            console.log((error as Error).message);
-        }
-        return []
-    }
-}
-
-const getAllJobForm = async () => {
-    try {
-        const response = await axios.get<Job[]>('https://hirly-ai-production.up.railway.app/jobs');
-        return response.data;
-    } catch (error) {
-        if (typeof error === 'object' && error !== null && 'message' in error) {
-            console.log((error as Error).message);
-        }
-        return []
-    }
-}
+import {getAllJobForm} from "@/lib/services/api/job.ts";
+import {getAllApplications} from "@/lib/services/api/jobApplication.ts";
 
 export const AdminDashboardPage = () => {
     const ref = useRef();

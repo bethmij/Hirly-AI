@@ -1,6 +1,7 @@
 import axios from "axios";
 import {FieldValues} from "react-hook-form";
 import swal from "sweetalert";
+import {Job} from "@/assets/Data/interfaces.ts";
 
 export const getJobApplication = async (jobId: string) => {
     const token = await window.Clerk.session.getToken();
@@ -36,5 +37,17 @@ export const postJob = async (data: FieldValues) => {
         }
     }catch (error) {
         await swal("Error", `Job Posting Failed!`, 'error')
+    }
+}
+
+export const getAllJobForm = async () => {
+    try {
+        const response = await axios.get<Job[]>('https://hirly-ai-production.up.railway.app/jobs');
+        return response.data;
+    } catch (error) {
+        if (typeof error === 'object' && error !== null && 'message' in error) {
+            console.log((error as Error).message);
+        }
+        return []
     }
 }

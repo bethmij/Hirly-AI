@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c11bea1b-5c6c-4640-8f40-3e3ef383dde8" name="Changes" comment="add README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/shared/JobCard/JobCards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/job.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/lib/services/api/jobApplication.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Admin/AdminDashboard/AdminDashboardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Admin/AdminDashboard/AdminDashboardPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +52,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;js.last.introduce.type&quot;: &quot;VAR&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/bethmij/e6e5b486-6d96-406a-9def-132561b62dfc/IJSE/Working Projects/react-practice&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/bethmij/e6e5b486-6d96-406a-9def-132561b62dfc/BiGZKOOP/web-intern-se-sep&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -111,6 +117,16 @@
       <workItem from="1723903429812" duration="1216000" />
       <workItem from="1723921249978" duration="1243000" />
       <workItem from="1724399405677" duration="1429000" />
+      <workItem from="1724763988022" duration="8159000" />
+      <workItem from="1724819122475" duration="2197000" />
+      <workItem from="1725332394419" duration="51000" />
+      <workItem from="1725332586167" duration="5000" />
+      <workItem from="1725443145200" duration="1224000" />
+      <workItem from="1725504327368" duration="17000" />
+      <workItem from="1725592864198" duration="2259000" />
+      <workItem from="1725769061860" duration="113000" />
+      <workItem from="1725936618263" duration="2262000" />
+      <workItem from="1726074210387" duration="1842000" />
     </task>
     <task id="LOCAL-00001" summary="add authorization-middleware">
       <option name="closed" value="true" />
